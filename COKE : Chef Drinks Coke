@@ -1,0 +1,54 @@
+#include <algorithm>
+#include <iostream>
+#include <numeric>
+#include <vector>
+
+static auto temperature_at_home(int M, int K, int C) {
+	if(C < K)
+		return std::min(C + M, K);
+	if(C > K)
+		return std::max(C - M, K);
+	return K;
+}
+
+static auto satisfactory(int M, int K, int L, int R, int C)
+{
+	auto t = temperature_at_home(M, K, C);
+	return t >= L && t <= R;
+}
+
+static auto testcase(
+	unsigned N, int M, int K, int L, int R,
+	const std::vector<short>& C,
+	const std::vector<int>& P)
+{
+	std::vector<unsigned char> by_price(N);
+	std::iota(by_price.begin(), by_price.end(), 0);
+	std::sort(by_price.begin(), by_price.end(), [&](auto a, auto b) {
+			return P[a] < P[b];
+		});
+	for(unsigned i = 0; i != N; ++i)
+		if(satisfactory(M, K, L, R, C[by_price[i]]))
+			return P[by_price[i]];
+	return -1;
+}
+
+static void testcase() {
+	unsigned N;
+	int M, K, L, R;
+	std::cin >> N >> M >> K >> L >> R;
+	std::vector<short> C(N);
+	std::vector<int> P(N);
+	for(unsigned i = 0; i != N; ++i)
+		std::cin >> C[i] >> P[i];
+	std::cout << testcase(N, M, K, L, R, C, P) << '\n';
+}
+
+int main() {
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr);
+	unsigned T;
+	std::cin >> T;
+	while(T--)
+		testcase();
+}
