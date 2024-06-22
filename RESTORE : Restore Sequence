@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main(void) {
+	int t;
+	scanf("%d",&t);
+	while(t--){
+	    int n;
+	    scanf("%d",&n);
+	    int sai=0,rithu=2;
+	    int arr1[n+2],arr2[n+2];
+	    while(sai<n){
+	        scanf("%d",&arr1[sai]);
+	        sai++;
+	    }
+	    sai=n-1;
+	    while(sai>=0){
+	        if(arr1[sai]==(sai+1)){
+	            arr2[sai]=rithu;
+	            rithu++;
+	        }
+	        else
+	        arr2[sai]=arr2[arr1[sai]-1];
+	        sai--;
+	    }
+	    sai=0;
+	    while(sai<n){
+	        printf("%d ",arr2[sai]);
+	        sai++;
+	    }
+	    printf("\n");
+	}
+	return 0;
+}
