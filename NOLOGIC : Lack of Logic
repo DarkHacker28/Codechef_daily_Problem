@@ -1,0 +1,31 @@
+#include <bitset>
+#include <cctype>
+#include <iostream>
+#include <string>
+
+static auto testcase(const std::string& question) {
+	std::bitset<'z' - 'a' + 1> seen;
+	for(char c : question)
+		if(std::isalpha(c))
+			seen.set(static_cast<unsigned>(std::tolower(c) - 'a'));
+	for(char a = 'a'; a != 'z' + 1; ++a)
+		if(!seen.test(static_cast<unsigned>(a - 'a')))
+			return a;
+	return '~';
+}
+
+static void testcase() {
+	std::string question;
+	std::getline(std::cin, question);
+	std::cout << testcase(question) << '\n';
+}
+
+int main() {
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr);
+	unsigned T;
+	std::cin >> T;
+	std::cin.ignore();
+	while(T--)
+		testcase();
+}
