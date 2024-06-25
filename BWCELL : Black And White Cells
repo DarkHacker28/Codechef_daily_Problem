@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+
+static bool testcase(std::size_t left, std::size_t right) {
+	return left != right;
+}
+
+static auto testcase(const std::string& S) {
+	auto left = S.find('W');
+	auto right = S.size() - left - 1;
+	return testcase(left, right);
+}
+
+static void testcase() {
+	std::string S;
+	std::cin >> S;
+	std::cout << (testcase(S) ? "Aleksa\n" : "Chef\n");
+}
+
+int main() {
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr);
+	unsigned T;
+	std::cin >> T;
+	while(T--)
+		testcase();
+}
