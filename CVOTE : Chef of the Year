@@ -1,0 +1,116 @@
+# include<bits/stdc++.h>// My template 
+# define ll long long
+# define ull unsigned long long
+# define endl "\n"
+using namespace std;
+void Sol( );
+void PrintVector( vector<ll> &v);
+void PrintMap(map<int,int> &mp);
+void PrintPairVector( vector<pair<int,int>>&v );
+void Print2DArray(vector<vector<bool>> &arr);
+void Input1DArray(vector<ll> &arr);
+int BinaryExponentiationIterative(int a, int b,int mod);
+bool isValid(vector<vector<bool>>&arr,int r,int c);
+ll MaxContignSubarrSum(vector<ll>&arr);
+bool isPerfectSquare(long double x);
+int main( ){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);// for fast reading and writting of input and output(speed of printf & scanf)
+  int t=1;
+  //cin>>t;
+  while(t--){
+    Sol( );
+  }
+  return 0;
+}
+void Sol( ){
+ll N,M;
+cin>>N>>M;
+map<string,string>m1;
+for(int i=0;i<N;++i){
+string name,country;
+cin>>name>>country;
+m1[name]=country;
+}
+map<string,ll>m2,m3;
+for(int i=0;i<M;++i){
+  string subj;
+  cin>>subj;
+  ++m2[subj];
+  ++m3[m1[subj]];
+}
+ll maxfreq=LONG_MIN;
+string winner;
+for(auto it=m2.begin( );it!=m2.end( );++it){
+  if(maxfreq<it->second){
+    maxfreq=it->second;
+    winner=it->first;
+  }
+}
+ maxfreq=LONG_MIN;
+string country_winner;
+for(auto it=m3.begin( );it!=m3.end( );++it){
+  if(maxfreq<it->second){
+    maxfreq=it->second;
+    country_winner=it->first;
+  }
+}
+cout<<country_winner<<endl<<winner<<endl;
+}
+
+
+ll MaxContignSubarrSum(vector<ll>&arr){
+  // Kadane's Algorithm
+  ll max_end_here=0;
+  ll max_so_far=LONG_MIN;
+  int len=arr.size( );
+  for(int i=0;i<len;++i){
+    max_end_here+=arr[i];
+    if(max_end_here>max_so_far)
+    max_so_far=max_end_here;
+    if(max_end_here<0)
+    max_end_here=0;// max_end_here always stores the maximum sum
+  }
+  return max_so_far;
+}
+
+void PrintMap(map<int,int>&mp ){
+  for(auto it=mp.begin( );it!=mp.end( );++it){
+    cout<<it->first<<"->"<<it->second<<endl;
+  }
+}
+void PrintVector(vector<ll> &v){
+  
+  int size=v.size( );
+  for(int i=0;i<size;++i){
+    cout<<v[i]<<" ";
+  }
+  cout<<endl;
+}
+
+void Print2DArray(vector<vector<bool>> &arr){
+ for(int i=0;i<arr.size( );++i){
+
+  for(int j=0;j<arr[i].size( );++j)
+   cout<<arr[i][j]<<" ";
+   cout<<endl;
+ }
+
+}
+void Input1DArray(vector<ll> &arr){
+  int size=arr.size( );
+  for(int i=0;i<size;++i){
+    cin>>arr[i];
+  }
+}
+int BinaryExponentiationIterative(int a, int b,int mod){
+  int ans=1;
+  while(b){
+      if(b&1)// If b is odd i.e  if right most bit is 1 --> multiply a into the ans
+    ans= (ans* 1LL*a)%mod;// 1LL to avoid overflow 
+    // also double a in every iteration i.e
+    a= (a*1LL*a)%mod;
+    b>>=1 ; //b=b>>1 i.e divide b by 2 in every iteration which makes its complexity O(logb)
+  }
+  return ans;
+}
