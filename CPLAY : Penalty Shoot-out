@@ -1,0 +1,66 @@
+#include <algorithm>
+#include <bitset>
+#include <iostream>
+#include <limits>
+#include <utility>
+
+using penalties_t = std::bitset<20>;
+
+enum outcome_t { TEAM_A, TEAM_B, TIE };
+
+static auto testcase(penalties_t p) {
+	int a = 0;
+	int b = 0;
+	int rest_a = 5;
+	int rest_b = 5;
+	for(unsigned i = 0; i != 10; ) {
+		a += p[i++];
+		--rest_a;
+		if(a > b + rest_b)
+			return std::make_pair(TEAM_A, i);
+		if(b > a + rest_a)
+			return std::make_pair(TEAM_B, i);
+		b += p[i++];
+		--rest_b;
+		if(a > b + rest_b)
+			return std::make_pair(TEAM_A, i);
+		if(b > a + rest_a)
+			return std::make_pair(TEAM_B, i);
+	}
+	for(unsigned i = 10; i != 20; ) {
+		a += p.test(i++);
+		b += p.test(i++);
+		if(a > b)
+			return std::make_pair(TEAM_A, i);
+		if(b > a)
+			return std::make_pair(TEAM_B, i);
+	}
+	return std::make_pair(TIE, 0u);
+}
+
+static void testcase() {
+	char line[20];
+	std::cin.read(line, 20);
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	std::reverse(line, line + 20);
+	auto [outcome, kicks] = testcase(penalties_t{line, 20});
+	switch(outcome) {
+	case TEAM_A:
+		std::cout << "TEAM-A " << kicks << '\n';
+		return;
+	case TEAM_B:
+		std::cout << "TEAM-B " << kicks << '\n';
+		return;
+	case TIE:
+		std::cout << "TIE\n";
+		return;
+	}
+}
+
+int main() {
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(nullptr);
+	do {
+		testcase();
+	} while(std::cin.peek() != EOF);
+}
