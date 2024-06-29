@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve () {
+    
+    long long x; cin >> x;
+    
+    if (x % 2) {
+        cout << "-1\n";
+        return;
+    }
+    long long ck = log2(x);
+    long long ok = 1;
+    for (int i = 1; i <= ck; i++) ok *= 2;
+    if (ok == x) {
+        cout << "-1\n";
+        return;
+    }
+    long long a = x / 2;
+    for (long long i = 1; i < a;) {
+        if (a + i + (a ^ i) == x) {
+            cout << 0 << " " << i << " " << a << "\n";
+            return;
+        } else i *= 2;
+    }
+}
+
+int32_t main() {
+	ios_base::sync_with_stdio(0); cin.tie(0);
+	int t; cin >> t;
+	while (t--) solve();
+	return 0;
+}
