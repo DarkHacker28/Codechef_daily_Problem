@@ -1,0 +1,38 @@
+#include <algorithm>
+#include <iostream>
+#include <iterator>
+#include <vector>
+
+template <typename It>
+static auto testcase(int N, It b, It e) {
+	std::sort(b, e);
+	for(int cut = 0;; ++cut) {
+		N -= *--e; // Add the longest chain.
+		if(N == 0)
+			return cut;
+		--*b; // Cut one donut from the shortest chain.
+		if(*b == 0) // The shortest chain is used up.
+			++b; // Move to the next shortest chain.
+		--N; // Count the joining donut as well.
+	}
+}
+
+static void testcase() {
+	int N;
+	unsigned M;
+	std::cin >> N >> M;
+	std::vector<int> A;
+	A.reserve(M);
+	std::copy_n(std::istream_iterator<int>(std::cin), M, std::back_inserter(A));
+	std::cout << testcase(N, A.begin(), A.end()) << '\n';
+}
+
+int main() {
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(nullptr);
+	std::cin.exceptions(std::ios::failbit | std::ios::badbit);
+	unsigned T;
+	std::cin >> T;
+	while(T--)
+		testcase();
+}
