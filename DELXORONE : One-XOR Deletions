@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+using namespace std;
+# define int long long
+unsigned int getFirstSetBitPos(int n)
+    {
+        return log2(n & -n) + 1;
+    }
+int gP(int n){
+    
+        // Initializing the position bit to 1
+        int pos = 0;
+        while (n > 0) {
+            n = n >> 1;
+            pos++;
+        }
+        return pos;
+    }
+signed main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+   int test;
+   cin>>test;
+   while(test--)
+{
+int n;
+cin>>n;
+int arr[n+1];
+unordered_map<int,int> mp;
+for(int i=0;i<n;i++)
+{
+    cin>>arr[i];
+    mp[arr[i]]++;
+}
+int size=0;
+for(auto & st: mp)
+{
+    int first=st.first;
+    int second=st.first-1;
+    int xp=first^second;
+    if(xp<=1)
+    {
+       if(mp.find(st.first)!=mp.end())
+        {
+            int finder=st.first-1;
+           if(mp.find(st.first-1)!=mp.end())
+           {
+              
+               size=max(size,abs(mp[st.first]+mp[finder]));
+           }
+        } 
+    }
+    size=max(size,st.second);
+}
+cout<<n-size<<"\n";
+}   
+}
