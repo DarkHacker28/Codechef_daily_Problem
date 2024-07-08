@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+int expo(ll int n){
+    int count=0;
+    int x=2;
+    while(n/2!=0){
+        n=n/2;
+        count++;
+    }
+    return count;
+}
+ll int power(ll int x, ll int y)
+{
+    ll int temp;
+    if (y == 0)
+        return 1;
+    temp = power(x, y / 2);
+    if (y % 2 == 0)
+        return temp*temp;
+    else
+        return x*temp*temp;
+}
+ void solve(){
+     ll int n,m;cin>>n>>m;
+     ll int s=1e7+5;
+     ll int prime[s];
+     for(ll int i=0;i<s;i++)prime[i]=0;
+     for(ll int i=2;i<s;i++){
+         if(prime[i]==0){
+          prime[i]=1;
+          ll int j=2*i;
+          while(j<s){
+              prime[j]=-1;j+=i;
+          }
+         }
+     } ll int ans=0;
+       for(ll int i=2;i<=n+m;i++)if(prime[i]==1)ans++;
+       cout<<ans<<endl;
+ } 
+ 
+ int main() { 
+	 solve();
+	return 0;
+}
