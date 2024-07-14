@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ii ({long long a;cin>>a;a;})
+#define si ({string s;cin>>s;s;})
+#define dis(x) cout<<x<<"\n"
+
+
+typedef long long ll;
+typedef vector<long long> vll;
+
+
+#define print(v) ({for(auto x:v) cout<<x<<" ";})
+#define pb(val) push_back(val)
+#define v(l) vector<ll> 
+#define sort(v) sort(v.begin(),v.end())
+#define vmax(v)  *max_element(v.begin(),v.end())
+#define vmin(v) *min_element(v.begin(),v.end())
+#define f(n) for(int i=0;i<n;i++)
+
+
+int main() {
+	// your code goes here
+	
+	long long t=ii;
+	
+	while(t--)
+	{
+	    ll k=ii;
+	    
+	    k--;
+	    
+	    ll res=0;
+	    
+	    ll base=1;
+	    
+	    while(k)
+	    {
+	        res+=2*(k%5)*base;
+	        
+	        base*=10;
+	        k/=5;
+	    }
+	    
+	    dis(res);
+	   
+	}
+	
+	return 0;
+}
