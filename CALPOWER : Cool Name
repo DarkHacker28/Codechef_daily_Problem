@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        string st;
+        cin >> st;
+        // cout << st << endl;
+        sort(st.begin(), st.end());
+        // cout << st << endl;
+        int ans = 0;
+        for (int i = 0; i < st.size(); i++)
+        {
+            ans += ((i + 1) * (st[i] - 96));
+        }
+        cout << ans << endl;
+    }
+
+    return 0;
+}
