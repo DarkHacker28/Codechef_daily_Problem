@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+	int t, n, p, mp, sp;
+	cin >> t;
+	while (t--) {
+	    cin >> n;
+	    sp = mp = 0;
+	    while (--n) {
+	        cin >> p;
+	        sp += p;
+	        mp = max(mp, p);
+	    }
+	    cout << sp + mp << '\n';
+	}
+	return 0;
+}
