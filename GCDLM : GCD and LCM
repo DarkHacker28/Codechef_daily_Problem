@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define ff first
+#define ld long double
+#define ss second
+const ll N = 1e6 + 1, M = 1e9 + 7;
+ll ceil_div(ll a, ll b) { return a % b == 0 ? a / b : a / b + 1; }
+
+void solve()
+{
+    int a, b, k;
+    cin >> a >> b >> k;
+    if (a > b)
+    {
+        swap(a, b);
+    }
+    int h = __gcd(a, b);
+    if (k == 1)
+    {
+        cout << h + a << "\n";
+    }
+    else
+    {
+        cout << 2 * h << "\n";
+    }
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    ll t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
+    return 0;
+}
