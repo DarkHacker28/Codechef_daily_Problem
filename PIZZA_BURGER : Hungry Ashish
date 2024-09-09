@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+#define int long long int
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define pb push_back
+#define mod 1000000007
+using namespace std;
+
+
+int32_t main()
+{
+    fastio int t;
+    cin>>t;
+    while(t--)
+    {
+        int x, pizz, bur;
+        cin >> x >> pizz >> bur;
+        if (x >= pizz)
+        {
+            cout << "PIZZA\n";
+        }
+        else if (x < pizz && x < bur)
+        {
+            cout << "NOTHING\n";
+        }
+        else
+        {
+            cout << "BURGER\n";
+        }
+        
+    }
+    return 0;
+}
