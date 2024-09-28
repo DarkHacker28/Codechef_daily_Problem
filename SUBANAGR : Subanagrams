@@ -1,0 +1,43 @@
+//----------------------------------------------------------------------------------------------------------------
+#include <bits/stdc++.h>
+#define ll long long
+#define read_arr(a, n) for(int i=0; i<n; i++) cin >> a[i]
+#define write_arr(a, n) for(int i=0; i<n; i++) cout << a[i] << " "
+#define read_vec(a, n) for(int i=0; i<n; i++){int temp; cin >> temp; a.push_back(temp);}
+#define write_vec(a, n) for(int i=0; i<n; i++) cout << a[i] << " "
+#define all(x) x.begin(), x.end()
+#define rev(x) x.rbegin(), x.rend()
+#define enter cout << endl << endl
+#define pb push_back
+using namespace std;
+
+bool even(ll n){return (n%2==0)? true:false;}
+bool odd(ll n){return (n%2==1)? true:false;}
+ll lcm(ll a, ll b){return (a * b) / __gcd(a, b);}
+ll fact(ll n){if (n == 0) return 1; return n * fact(n-1);}
+
+//----------------------------------------------------------------------------------------------------------------
+
+int main(){
+    int n; cin >> n;
+    string a; cin >> a;
+    for(int i=1; i<n; i++){
+        string b, s = ""; cin >> b;
+        for(int p=0; p<a.size(); p++){
+            for(int q=0; q<b.size(); q++){
+                if(a[p] == b[q]){
+                    s +=  b[q];
+                    b.erase(b.begin()+q, b.begin()+q+1);
+                    break;
+                }
+            }
+        }
+        a = s;
+    }
+    sort(all(a));
+    if(a.length() == 0) cout << "no such string" << endl;
+    else cout << a << endl;
+    return 0;
+
+
+}
