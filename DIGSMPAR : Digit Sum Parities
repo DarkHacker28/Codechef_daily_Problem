@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t, nines;
+	long long int n, m;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n; nines=0, m=n;
+	    while(n%10==9)
+	    {
+	        nines++;
+	        n/=10;
+	    }
+	    if(nines%2==1)
+	        cout<<m+2<<endl;
+	    else
+	        cout<<m+1<<endl;
+	}
+	return 0;
+}
