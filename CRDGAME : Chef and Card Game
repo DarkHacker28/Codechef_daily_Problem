@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int sumOfNum(int num)
+{
+    int sum = 0;
+    while (num != 0)
+    {
+        sum += num % 10;
+        num /= 10;
+    }
+    return sum;
+}
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int n;
+        cin >> n;
+        int a = 0, b = 0;
+        while (n--)
+        {
+            int first, second;
+            cin >> first >> second;
+            first = sumOfNum(first);
+            second = sumOfNum(second);
+
+            if (first > second)
+            {
+                a++;
+            }
+            else if (first < second)
+            {
+                b++;
+            }
+            else
+            {
+                a++;
+                b++;
+            }
+        }
+        if (a > b)
+        {
+            cout << 0 << " " << a << endl;
+        }
+        else if (a < b)
+        {
+            cout << 1 << " " << b << endl;
+        }
+        else
+        {
+            cout << 2 << " " << a << endl;
+        }
+    }
+}
