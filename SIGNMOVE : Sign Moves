@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define f(n) for(int i=0;i<n;i++)
+#define mod 1000000007
+#define lli long long int 
+#define yes cout<<"YES"
+#define no cout<<"NO"
+#define pb push_back
+#define cn cin>>n
+int main()
+{
+    lli ttc;
+    cin>>ttc;
+    while(ttc--)
+    {
+      lli n;
+      cin>>n;
+      if(n%2)
+      cout<<-((n+1)/2);
+      else
+      cout<<n/2;
+      cout<<endl;
+    }
+    return 0;
+}
