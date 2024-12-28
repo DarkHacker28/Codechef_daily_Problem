@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    //pc => power of Chef
+    //pr => power of Rick
+	int t,pc,pr;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>pc>>pr;
+	    //Base condition: 
+	    //if the power if <10 then only one digit is required
+	    
+	    //if both have power <10 Rick wins by cheating
+	    if(pc<10 && pr<10) {cout<<"1 1"<<endl;}
+	    //if Chef has power <10 and Rick has >9 then Chef wins
+	    else if(pc<10 && pr>9) {cout<<"0 1"<<endl;}
+	    //if Chef has power >9 and Rick has <10 then Rick wins
+	    else if(pc>9 && pr<10) {cout<<"1 1"<<endl;} 
+	    
+	    else if(pc>9 && pr>9)
+	    {
+	        if(pc<pr) //Chef wins
+	        {
+	            if(pc%9==0) {cout<<"0 "<<pc/9<<endl;}
+	            else {cout<<"0 "<<(pc/9)+1<<endl;}
+	        }
+	        else //pc>=pr then Rick wins
+	        {
+	            if(pr%9==0) {cout<<"1 "<<pr/9<<endl;}
+	            else {cout<<"1 "<<(pr/9)+1<<endl;}
+	        }
+	    }
+	    
+	}
+	return 0;
+}
