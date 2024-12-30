@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+void call(){
+        int n;cin>>n;
+        int a[n];
+        for(int i = 0;i<n;i++){
+                cin>>a[i];
+        }
+        int p = 0;
+        int cnt = 0;
+        for(int i = 0; i<n; i++){
+                if(a[i] == 0){
+                        p = i;
+                        break;
+                }
+                if(a[i] == 1){
+                        cnt++;
+                }
+        }
+        int ans = 0;
+        if(n == cnt){
+                ans = 0;
+        }
+        else{
+              for(int i = p;i<n;i++){
+                if(a[i] == 0){
+                        ans = ans + 1100;
+                }
+                if(a[i] == 1){
+                        ans = ans + 100;
+                }
+              }
+        }
+        cout<<ans<<endl;
+}
+int main() {
+	// your code goes here
+	int t;cin>>t;
+	while(t--){
+	        call();
+	}
+	return 0;
+}
