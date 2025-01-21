@@ -1,0 +1,73 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define MOD 1000000007
+
+char lower_limit[25], upper_limit[25];
+
+long long memo[25], m;
+
+long long count_passwords(char *password, long long n, long long idx)
+{
+    if (idx == 0)
+        return 1;
+
+    long long ans = 0;
+
+    char temp;
+
+    ans = (ans + memo[idx-1]*24%MOD)%MOD;
+
+    password[idx] = 'A';
+
+    if (n-idx+1 >= m) {
+        temp = password[idx+m];
+        password[idx+m] = '\0';
+        password[idx] = 'A';
+
+        if (strcmp(lower_limit, password+idx) > 0 || strcmp(password+idx, upper_limit) > 0)
+            ans = (ans + count_passwords(password, n, idx-1))%MOD;
+
+        password[idx] = 'B';
+
+        if (strcmp(lower_limit, password+idx) > 0 || strcmp(password+idx, upper_limit) > 0)
+            ans = (ans + count_passwords(password, n, idx-1))%MOD;
+
+        password[idx+m] = temp;
+    }
+
+    else {
+        password[idx] = 'A';
+        ans = (ans + count_passwords(password, n, idx-1))%MOD;
+
+        password[idx] = 'B';
+        ans = (ans + count_passwords(password, n, idx-1))%MOD;
+    }
+
+    return ans;
+}
+
+char password[25];
+
+int main()
+{
+    long long num_cases, i, n;
+
+    scanf("%lld", &num_cases);
+
+    while (num_cases--) {
+        scanf("%lld%lld%s%s", &n, &m, lower_limit, upper_limit);
+
+        memo[0] = 1;
+
+        for (i = 1; i < m; i++)
+            memo[i] = memo[i-1]*26%MOD;
+
+        for (i = m; i <= n; i++)
+            memo[i] = count_passwords(password, i, i);
+
+        printf("%lld\n", memo[n]);
+    }
+
+    return 0;
+}
