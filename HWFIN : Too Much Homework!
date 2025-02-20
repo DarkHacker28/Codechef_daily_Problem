@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int x, Y;
+    cin >> x >> Y;
+    int A = x + (10 * Y);
+    if (A >= 100) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
+    return 0;
+
+
+}
