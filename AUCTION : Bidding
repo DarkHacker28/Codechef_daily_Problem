@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while(t--){
+        int x, y, z;
+        cin >> x >> y >> z;
+        
+        if(max(max(x, y), max(y, z)) == x)           
+            cout << "Alice" << endl;
+        else if(max(max(x, y), max(y, z)) == y)           
+            cout << "Bob" << endl;
+        else
+            cout << "Charlie" << endl;
+    }
+
+    return 0;
+}
