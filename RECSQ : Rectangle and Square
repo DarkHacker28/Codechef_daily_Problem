@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int l,b,s=0;
+	cin>>l>>b>>s;
+	int areaR = l*b;
+	int areaS = s*s;
+	if(areaR==areaS){
+	    cout<<"YES"<<endl;
+	}
+	else{
+	    cout<<"NO"<<endl;
+	}
+
+}
