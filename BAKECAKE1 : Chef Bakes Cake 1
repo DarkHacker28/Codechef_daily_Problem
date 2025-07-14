@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define ll long long
+#define sti string
+#define vt vector
+#define pll pair<ll,ll>
+#define ld long double
+#define vll vector<ll>
+#define fi first
+#define se second
+#define be(x) x.begin(),x.end()
+#define pb push_back
+#define dbg(x) cout<<#x<<" = "<<x<<endl;
+
+void solve()
+{
+    ll a,b;cin>>a>>b;cout<<b*50-a*30;
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);cout.tie(0);
+    ll tt=1;//cin>>tt;
+    while(tt--)
+    {
+        solve();
+    }
+    return 0;
+}
