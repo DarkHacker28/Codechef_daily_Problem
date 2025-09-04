@@ -1,0 +1,13 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int x,h;
+	cin>>x>>h;
+	
+	int diff=x-4;
+	int hours=diff*24;
+	cout<<hours+h ;
+
+}
