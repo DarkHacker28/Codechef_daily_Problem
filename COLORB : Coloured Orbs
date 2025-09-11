@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+int R,B;
+cin>>R>>B;
+int green=min(R,B);
+int remaining_red=R-green;
+int remaining_blue=B-green;
+int skill=green*5+remaining_red*1+remaining_blue*2;
+cout<<skill<<endl;
+return 0;
+}
