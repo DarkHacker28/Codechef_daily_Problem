@@ -1,0 +1,50 @@
+#pragma optimization (Ofast)
+#pragma GCC optimization ("unroll-loops")
+//#pragma GCC target (“avx , avx2”)
+//#pragma GCC optimization (“01 , 02 , O3”)
+
+#include <bits/stdc++.h>
+const int Mod = 1e9 + 7;
+
+using namespace std;
+
+#define int            long long int
+#define double         long double
+#define fast           cin.tie(0);cout.tie(0);ios_base::sync_with_stdio(0);
+#define nl             cout << "\n"
+#define fr(i, a, b)    for (int i = (a);i < (b); i++)
+#define rfr(i, a, b)   for (int i = (a);i >=(b); i--)
+#define afr(arr, a)    for (int i = (0);i < (a); i++) cin >> arr[i]
+#define ff             first
+#define ss             second
+#define pb             push_back
+#define sz(x)          ((int)(x).size())
+#define ci(v)          for (auto & a : (v)) cin >> a;
+#define co(v)          for (auto & a : (v)) cout << a <<" ";
+#define cfr(i,x)       for (auto & i : (x))
+#define ciso(x)        for (auto & i : (x)) cout << i.first << " "<<i.second << "\n"
+#define all(x)         (x).begin(),(x).end()
+#define rall(x)        (x).begin(),(x).end(),greater<int>()
+#define yes            cout << "Yes\n"
+#define no             cout << "No\n"
+#define out(ans)       cout << ans << '\n'
+#define xout(ans)      cout << ans << " "
+#define yn(a)          (a)? cout << "Yes\n" : cout << "No\n"
+#define mxe(n)         *max_element(n.begin(), n.end())
+#define mne(n)         *min_element(n.begin(), n.end())
+
+template <class T> using V = vector<T>;
+template <class T> using S = set<T>;
+template <class T> using US = unordered_set<T>;
+template <class U, class V> using P = pair<U,V>;
+template <class U, class V> using M = map<U,V>;
+template <class U, class V> using UM = unordered_map<U,V>;
+
+void solve(){
+    int n,a,b; cin >> n >> a >> b;
+    out(n - a * b);
+}
+
+int32_t main(){
+fast; int t(1); while(t--) solve();
+}
