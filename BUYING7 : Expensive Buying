@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+    int t;
+    cin>>t;
+    for(int i=0;i<t;i++){
+        int n,k;
+        cin>>n>>k;
+        std::vector<int> pro(n);
+        for (int i=0;i<n;i++){
+            cin>>pro[i];
+        }
+        sort(pro.begin(),pro.end());
+        reverse(pro.begin(),pro.end());
+        int sum=0;
+        for (int i=0;i<k;i++){
+            sum=sum+pro[i];
+        }
+        cout<<sum<<"\n";
+    }
+}
