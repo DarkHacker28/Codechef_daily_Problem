@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int T;
+	cin>>T;
+	while(T--){
+	    int X;
+	    int Y;
+	    cin>>X>>Y;
+	    
+	    int es = 0;
+	    int os = 0;
+	    int div = X;
+	    
+	    while(X<=Y){
+	        if(X%div == 0){
+	            if(X%2==0){
+	                es += X;
+	            }else{
+	                os += X;
+	            }
+	        }
+	        X++;
+	    }
+	    
+	    if(es >= os){
+	        cout<<"YES"<<endl;
+	    }else{
+	        cout<<"NO"<<endl;
+	    }
+	}
+
+}
