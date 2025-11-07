@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        int W, P, K;
+        cin >> W >> P >> K;
+        cout << min(K, W) * 2 + max(0, K - W) << endl;
+    }
+    return 0;
+}
