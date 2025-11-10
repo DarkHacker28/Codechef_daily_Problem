@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--){
+	    int x , y;
+	    cin>>x>>y;
+	    int diff=50-x;
+	    
+	    //starting 
+	 bool res=(diff>=2*y && diff<=2*(y+5));
+	 if(res==true){
+	     cout<<"Yes"<<endl;
+	 }
+	 else cout<<"No"<<endl;
+	}
+
+}
