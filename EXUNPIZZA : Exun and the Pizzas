@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int N,K,R;
+	cin >> N >> K >> R;
+	
+	int remaining = N-K;
+	
+	int revenue = remaining * R;
+	
+	cout << revenue  << endl;
+	
+	return 0;
+
+}
