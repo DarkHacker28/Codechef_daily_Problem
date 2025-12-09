@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+	// your code goes here
+	int test,my_money,candy_money;
+	cin>>test;
+	int array[test];
+	for(int i=0;i<test;i++){
+		cin>>my_money>>candy_money;
+		array[i]=my_money/candy_money;
+	}
+	for(int i=0;i<test;i++){cout<<array[i]<<endl;}
+	return 0;
+}
