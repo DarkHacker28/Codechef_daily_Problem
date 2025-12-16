@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define int long long
+#define pb push_back
+#define fr(i,a,b) for(int i = a; i < b; i++)
+#define add(v) accumulate((v).begin(), (v).end(), 0LL)
+#define all(x) (x).begin(), (x).end()
+#define in(v,n)  vi v(n); fr(i,0,n) cin>>v[i];
+#define fast ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+typedef vector<int> vi;
+
+void solve() {
+    int n; cin >> n;
+    in(a, n);
+    int sum = 0;
+    bool ok = true;
+
+    fr(i, 0, n) {
+        sum += a[i];
+        if ((sum * 1.0) / (i + 1) < 40) {
+            ok = false;
+            break;
+        }
+    }
+
+    cout << (ok ? "Yes" : "No") << endl;
+}
+
+int32_t main() {
+    fast
+    int t; cin >> t;
+    while(t--) solve();
+    return 0;
+}
