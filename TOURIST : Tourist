@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int T;
+    cin>>T;
+
+    while(T--){
+        int N,A,B;
+        cin>>N>>A>>B;
+
+        int closest=200,Xi,Yi;
+        while(N--){
+            cin>>Xi>>Yi;
+            closest=min(closest,abs(A-Xi)+abs(B-Yi));
+        }
+
+        cout<<closest<<'\n';
+    }
+
+    return 0;
+}
