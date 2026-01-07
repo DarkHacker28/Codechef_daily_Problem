@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+	    int N;
+	    cin>>N;
+	    
+	    int sum=0;
+	    for(int i=0; i<N; i++){
+	        int x;
+	        cin>>x;
+	        sum+=x;
+	    }
+	
+	    if(sum>=0) cout<<0<<endl;
+	    else{
+	        int X = (-sum+N-1)/N;
+	        cout<<X<<endl;
+	    }
+	}
+	return 0;
+
+}
