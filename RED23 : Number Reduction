@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int reduceX(int x) {
+    while (true) {
+        if (x % 2 == 0) {
+            x /= 2;
+        } else if (x > 3) {
+            x -= 3;
+        } else {
+            break; // can't reduce further
+        }
+    }
+    return x;
+}
+
+int main() {
+    int T;
+    cin >> T;
+    
+    while (T--) {
+        int X;
+        cin >> X;
+        cout << reduceX(X) << endl;
+    }
+    
+    return 0;
+}
+
+
