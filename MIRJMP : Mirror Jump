@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+void solve(){
+    int n,x;
+    cin>>n>>x;
+    int minOperations=(n-x);
+    minOperations=min(minOperations,(x-1)+1);
+    cout<<minOperations<<endl;
+}
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        solve();
+    }
+}
