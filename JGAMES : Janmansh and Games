@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t,x,y;
+	std::cin >> t;
+	while(t--)
+	{
+	    std::cin >> x>>y;
+	    if((x+y)%2==0) std::cout << "janmansh" << std::endl;
+	    else    std::cout << "jay" << std::endl;
+	}
+	return 0;
+}
