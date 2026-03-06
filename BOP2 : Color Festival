@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// definitions
+using ll = long long;
+using vi = vector<int>;
+using vll = vector<long long>;
+#define sortv(x) sort(x.begin(), x.end())
+#define revsortv(x) sort(x.rbegin(), x.rend())
+#define countv(x, a) count(x.begin(), x.end(), a)
+#define rev(x) reverse(x.begin(), x.end())
+#define ff first
+#define ss second
+#define print(x) cout << x << '\n'
+#define pb push_back
+#define ppb pop_back
+#define umap unordered_map
+#define uset unordered_set
+#define mp map
+void read() {}
+template <typename T, typename... Args>
+void read(T &first, Args &...rest)
+{
+	cin >> first;
+	read(rest...);
+}
+#define i(...) read(__VA_ARGS__)
+
+#define pv(v)             \
+	for (auto &x : v)     \
+		cout << x << " "; \
+	cout << '\n';
+
+#define iv(v)         \
+	for (auto &x : v) \
+		cin >> x;
+
+// constants
+const ll INF = 1e18;
+const int MOD = 1e9 + 7;
+
+void solve()
+{
+	int n;
+	i(n);
+	vi nums(n);
+	iv(nums);
+	umap <int, int> hash;
+	for(int num : nums){
+	    hash[num]++;
+	}
+	print(hash.size());
+}
+
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	int t = 1;
+	cin >> t;
+	while (t--)
+	{
+		solve();
+	}
+}
